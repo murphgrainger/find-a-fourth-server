@@ -5,6 +5,7 @@ exports.up = function(knex, Promise) {
     table.text('last_name').notNullable();
     table.integer('handicap')
     table.integer('age')
+    table.text('gender')
     table.integer('post_id').references('post.id').unsigned().onDelete('cascade');
   });
 };
