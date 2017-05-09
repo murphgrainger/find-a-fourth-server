@@ -1,8 +1,8 @@
+require('dotenv').config();
 var express = require('express');
 var fetch = require('node-fetch');
 var router = express.Router();
-
-require('dotenv').config();
+var queries = require('../db/queries');
 
 router.get('/swingAPI', function(req, res, next) {
   fetch(swingURL())
