@@ -2,7 +2,7 @@ require('dotenv').config();
 var express = require('express');
 var fetch = require('node-fetch');
 var router = express.Router();
-var queries = require('../db/queries');
+var Q = require('../db/queries');
 
 router.get('/swingAPI', function(req, res, next) {
   fetch(swingURL())
@@ -13,6 +13,15 @@ router.get('/swingAPI', function(req, res, next) {
     }).catch(err => {
       res.send(err);
     });
+});
+
+router.get('/posts', function(req, res, next) {
+  Q.getPosts()
+  .then(response => {
+    res.json(response);
+  }).catch(err => {
+    res.send(err)
+  });
 });
 
 function swingURL() {

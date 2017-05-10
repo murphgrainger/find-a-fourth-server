@@ -23,7 +23,7 @@ exports.seed = function(knex, Promise) {
       {
         time: '5:44pm',
         date: '5/21/2017',
-        course_name: 'Broken Tee',
+        course_name: 'Castle Pines',
         course_address: '2101 W Oxford Ave, Englewood, CO 80110',
         course_phone: '(303) 762-2670',
         cost: 23,
