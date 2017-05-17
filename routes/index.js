@@ -24,6 +24,15 @@ router.get('/posts', function(req, res, next) {
   });
 });
 
+router.post('/posts', function(req, res, next) {
+  Q.addPost(req.body)
+  .then(response => {
+    res.json(response);
+  }).catch(err => {
+    res.send(err)
+  });
+});
+
 function swingURL() {
     const swingAPI = 'https://api.swingbyswing.com/v2/courses/search_by_location?';
     let swingCoordinates = `lat=39&lng=-104.9`;
