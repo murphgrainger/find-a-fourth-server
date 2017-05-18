@@ -20,16 +20,16 @@ router.get('/posts', function(req, res, next) {
   .then(response => {
     res.json(response);
   }).catch(err => {
-    res.send(err)
+    res.send(err);
   });
 });
 
 router.post('/posts', function(req, res, next) {
   Q.addPost(req.body)
   .then(response => {
-    res.json(response);
+    res.json('Successful Post');
   }).catch(err => {
-    res.send(err)
+    res.send(err);
   });
 });
 
