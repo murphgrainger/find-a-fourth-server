@@ -1,17 +1,19 @@
 const knex = require('./knex');
+let moment = require('moment');
 
 module.exports = {
 
     getPosts: function() {
-        return knex('post')
-        .innerJoin('preference', 'post.id', 'preference.post_id')
+        return knex('post');
     },
 
     addPost: function(post) {
-      console.log(post);
+      let str = post.date;
+      let date = moment(str);
+      let formattedDate = date.utc().format('MM-DD-YYYY');
       return knex('post')
         .insert({
-          date: post.date,
+          date: formattedDate,
           handicap_min: post.handicapRange[0],
           handicap_max: post.handicapRange[1],
           age_min: post.ageRange[0],
