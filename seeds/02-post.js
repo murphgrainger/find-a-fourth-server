@@ -2,7 +2,7 @@ exports.seed = function(knex, Promise) {
   return knex.raw('DELETE FROM post; ALTER SEQUENCE post_id_seq RESTART WITH 1;')
     .then(function() {
       const post = [{
-        date: '5-23-2017',
+        date: 'Mon, May 23rd',
         handicap_min: 10,
         handicap_max: 25,
         age_min: 20,
@@ -11,7 +11,7 @@ exports.seed = function(knex, Promise) {
         group_count: 3,
         user_id: 1
       }, {
-        date: '5-22-2017',
+        date: 'Sun, May 22nd',
         handicap_min: 10,
         handicap_max: 25,
         age_min: 20,
@@ -21,7 +21,7 @@ exports.seed = function(knex, Promise) {
         user_id: 2
       },
       {
-        date: '5-21-2017',
+        date: 'Sat, May 21st',
         handicap_min: 10,
         handicap_max: 25,
         age_min: 20,

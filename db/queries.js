@@ -10,7 +10,7 @@ module.exports = {
     addPost: function(post) {
       let str = post.date;
       let date = moment(str);
-      let formattedDate = date.utc().format('MM-DD-YYYY');
+      let formattedDate = date.utc().format('ddd, MMM Do');
       return knex('post')
         .insert({
           date: formattedDate,
