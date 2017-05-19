@@ -13,7 +13,7 @@ module.exports = {
       let formattedDate = date.utc().format('ddd, MMM Do');
       return knex('post')
         .insert({
-          date: formattedDate,
+          date: post.date,
           handicap_min: post.handicapRange[0],
           handicap_max: post.handicapRange[1],
           age_min: post.ageRange[0],
