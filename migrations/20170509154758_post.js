@@ -8,6 +8,7 @@ exports.up = function(knex, Promise) {
     table.integer('age_max');
     table.text('gender');
     table.integer('group_count');
+    table.text('address');
     table.integer('user_id').references('user.id').unsigned().onDelete('cascade');
   });
 };

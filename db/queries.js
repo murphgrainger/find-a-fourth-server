@@ -8,6 +8,7 @@ module.exports = {
     },
 
     addPost: function(post) {
+      console.log(post);
       let str = post.date;
       let date = moment(str);
       let formattedDate = date.utc().format('ddd, MMM Do');
@@ -20,6 +21,7 @@ module.exports = {
           age_max: post.ageRange[1],
           gender: post.gender,
           group_count: post.sizeGroup,
+          address: post.address
         });
     }
 };

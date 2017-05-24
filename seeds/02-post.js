@@ -9,6 +9,7 @@ exports.seed = function(knex, Promise) {
         age_max: 40,
         gender: 'male',
         group_count: 3,
+        address: 'Broken Tee',
         user_id: 1
       }, {
         date: 'Sun, May 22nd',
@@ -17,6 +18,7 @@ exports.seed = function(knex, Promise) {
         age_min: 20,
         age_max: 40,
         gender: 'any',
+        address: '80210',
         group_count: 2,
         user_id: 2
       },
@@ -27,6 +29,7 @@ exports.seed = function(knex, Promise) {
         age_min: 20,
         age_max: 40,
         gender: 'female',
+        address: 'Sunnyside, CO',
         group_count: 3,
         user_id: 3
       }];
