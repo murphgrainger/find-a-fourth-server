@@ -4,11 +4,12 @@ exports.up = function(knex, Promise) {
     table.text('first_name').notNullable();
     table.text('last_name').notNullable();
     table.text('email').unique().notNullable();
-    table.text('phone').unique()
+    table.text('phone').unique();
     table.text('password').notNullable();
-    table.integer('handicap')
-    table.integer('age')
-    table.text('gender')
+    table.integer('handicap').notNullable();
+    table.integer('age').notNullable();
+    table.text('gender');
+    table.integer('zip_code');
   });
 };
 

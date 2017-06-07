@@ -1,5 +1,10 @@
 const knex = require('./knex');
-let moment = require('moment');
+const objection = require('objection');
+const User = require('../models/user');
+const Post = require('../models/post');
+const Golfer = require('../models/golfer');
+
+const moment = require('moment');
 
 module.exports = {
 
