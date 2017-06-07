@@ -15,9 +15,20 @@ router.get('/swingAPI', function(req, res, next) {
     });
 });
 
-router.get('/posts', function(req, res, next) {
+router.get('/posts', function(req, res, next) {;
   Q.getPosts()
   .then(response => {
+    console.log(response);
+    res.json(response);
+  }).catch(err => {
+    res.send(err);
+  });
+});
+
+router.get('/users', function(req, res, next) {;
+  Q.getUsers()
+  .then(response => {
+    console.log(response);
     res.json(response);
   }).catch(err => {
     res.send(err);

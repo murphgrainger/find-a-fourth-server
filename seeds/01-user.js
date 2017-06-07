@@ -13,16 +13,19 @@ exports.seed = function(knex, Promise) {
         password: hash,
         handicap: 13,
         age: 28,
-        gender: 'Female'
+        gender: 'Female',
+        zip_code: 80210
       }, {
-        first_name: 'Shelby',
-        last_name: 'Trueax',
-        email: 'shelby@example.com',
+        first_name: 'Kyle',
+        last_name: 'Davis',
+        email: 'kyle@example.com',
         phone: '123-456-7890',
         password: hash,
         handicap: 20,
         age: 27,
-        gender: 'Female'
+        gender: 'Male',
+        zip_code: 80220
+
       } , {
         first_name: 'John',
         last_name: 'Kimble',
@@ -31,16 +34,8 @@ exports.seed = function(knex, Promise) {
         password: hash,
         handicap: 8,
         age: 45,
-        gender: 'Male'
-      } , {
-        first_name: 'Kyle',
-        last_name: 'Johnson',
-        email: 'kyle@example.com',
-        phone: '445-234-7890',
-        password: hash,
-        handicap: 1,
-        age: 23,
-        gender: 'Male'
+        gender: 'Male',
+        zip_code: 90210
       }];
       return knex('user').insert(user);
     });
