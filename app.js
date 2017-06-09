@@ -38,6 +38,12 @@ app.use(function(req, res, next) {
   next(err);
 });
 
+
+app.use(function (err, req, res, next) {
+  if (err.name === 'UnauthorizedError') {
+    res.status(401).json({message:'Missing or invalid token'});
+  }
+});
 // error handler
 app.use(function(err, req, res, next) {
   // set locals, only providing error in development
