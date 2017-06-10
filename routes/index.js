@@ -20,10 +20,9 @@ const authCheck = jwt({
 });
 
 
-router.get('/posts', authCheck, function(req, res, next) {
+router.get('/posts', function(req, res, next) {
   Q.getPosts()
   .then(response => {
-    console.log(response);
     res.json(response);
   }).catch(err => {
     console.log(err);
@@ -34,14 +33,31 @@ router.get('/posts', authCheck, function(req, res, next) {
 router.get('/users', authCheck, function(req, res, next) {
   Q.getUsers()
   .then(response => {
-    console.log(response);
     res.json(response);
   }).catch(err => {
     res.send(err);
   });
 });
 
-router.post('/posts', function(req, res, next) {
+router.post('/users', authCheck, function(req, res, next) {
+  Q.getUser(req.body)
+  .then(user => {
+    if (user.length !== 0) {
+      res.json(user)
+    } else {
+      Q.addUser(req.body)
+      .then(response => {
+        res.json('Successful Post');
+      }).catch(err => {
+        console.log(err);
+        res.send(err);
+      });
+    }
+  })
+});
+
+
+router.post('/posts', authCheck, function(req, res, next) {
   Q.addPost(req.body)
   .then(response => {
     res.json('Successful Post');

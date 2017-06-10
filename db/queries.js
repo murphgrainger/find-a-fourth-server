@@ -16,7 +16,23 @@ module.exports = {
       .query()
       .skipUndefined();
   },
-  
+
+  getUser: function(body) {
+    console.log(body);
+    return User
+    .query()
+    .where('token_id', '=', body.id)
+  },
+
+  addUser: function(body) {
+    return User
+      .query()
+      .insert({
+        name: body.name,
+        token_id: body.id,
+      })
+  },
+
   addPost: function(post) {
     return User
     .query()
