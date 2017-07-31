@@ -11,6 +11,16 @@ module.exports = {
       .skipUndefined();
   },
 
+  getPostsPerUser: function(id) {
+    return User
+    .query()
+    .findById(id)
+    .then(user => {
+      return user
+      .$relatedQuery('posts')
+    })
+  },
+
   getUsers: function() {
       return User
       .query()
@@ -18,7 +28,6 @@ module.exports = {
   },
 
   getUser: function(body) {
-    console.log(body);
     return User
     .query()
     .where('token_id', '=', body.id)

@@ -25,7 +25,15 @@ router.get('/posts', function(req, res, next) {
   .then(response => {
     res.json(response);
   }).catch(err => {
-    console.log(err);
+    res.send(err);
+  });
+});
+
+router.get('/posts/:id', function(req, res, next) {
+  Q.getPostsPerUser(req.params.id)
+  .then(response => {
+    res.json(response);
+  }).catch(err => {
     res.send(err);
   });
 });
@@ -49,7 +57,6 @@ router.post('/users', authCheck, function(req, res, next) {
       .then(response => {
         res.json('Successful Post');
       }).catch(err => {
-        console.log(err);
         res.send(err);
       });
     }
@@ -62,7 +69,6 @@ router.post('/posts', authCheck, function(req, res, next) {
   .then(response => {
     res.json('Successful Post');
   }).catch(err => {
-    console.log(err);
     res.send(err);
   });
 });
