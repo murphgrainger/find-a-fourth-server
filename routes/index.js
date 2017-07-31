@@ -30,12 +30,15 @@ router.get('/posts', function(req, res, next) {
 });
 
 router.get('/posts/:id', function(req, res, next) {
-  Q.getPostsPerUser(req.params.id)
-  .then(response => {
-    res.json(response);
-  }).catch(err => {
-    res.send(err);
-  });
+  Q.getUserbyTokenId(req.params.id)
+    .then(user => {
+      Q.getPostsPerUser(user[0].id)
+      .then(response => {
+        res.json(response)
+      }).catch(err => {
+        res.send(err)
+      })
+    })
 });
 
 router.get('/users', authCheck, function(req, res, next) {
