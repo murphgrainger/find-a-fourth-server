@@ -11,17 +11,6 @@ module.exports = {
       .skipUndefined();
   },
 
-  // getPostsPerUser: function(id) {
-  //   console.log(id);
-  //   return Post
-  //   .query()
-  //   .then(post => {
-  //     return post
-  //     .$relatedQuery('user')
-  //     .where('token_id', id)
-  //   })
-  // },
-
   getUserbyTokenId: function(id) {
     return User
     .query()

@@ -38,6 +38,8 @@ router.get('/posts/:id', function(req, res, next) {
       }).catch(err => {
         res.send(err)
       })
+    }).catch(err => {
+      res.send(err)
     })
 });
 
