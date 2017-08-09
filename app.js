@@ -25,17 +25,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 
-var domains = ['http://localhost:3000', 'https://find-a-fourth-1495660183624.firebaseapp.com']
-app.use(cors({
-  origin: function (origin, callback) {
-    if (domains.indexOf(origin) !== -1) {
-      callback(null, true)
-    } else {
-      callback(new Error('Not allowed by CORS'))
-    }
-  },
-  credentials: true
-}));
+app.use(cors());  
 
 app.use('/', index);
 app.use('/users', users);
