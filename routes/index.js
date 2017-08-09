@@ -43,7 +43,7 @@ router.get('/posts/:id', function(req, res, next) {
     })
 });
 
-router.get('/users', authCheck, function(req, res, next) {
+router.get('/users', function(req, res, next) {
   Q.getUsers()
   .then(response => {
     res.json(response);
@@ -52,7 +52,7 @@ router.get('/users', authCheck, function(req, res, next) {
   });
 });
 
-router.post('/users', authCheck, function(req, res, next) {
+router.post('/users', function(req, res, next) {
   Q.getUser(req.body)
   .then(user => {
     if (user.length !== 0) {
