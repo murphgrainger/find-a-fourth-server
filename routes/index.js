@@ -69,7 +69,7 @@ router.post('/users', function(req, res, next) {
 });
 
 
-router.post('/posts', authCheck, function(req, res, next) {
+router.post('/posts', function(req, res, next) {
   console.log(req.body);
   Q.addPost(req.body)
   .then(response => {
